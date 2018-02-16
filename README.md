@@ -1,3 +1,3 @@
 # Spades-Java
 
-First full Java program to emulate a game of Spades!
+My first full Java program to emulate a game of Spades!
