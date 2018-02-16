@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package core;
 
 /**
@@ -10,5 +6,16 @@ package core;
  * @author joeltucker
  */
 public class HumanPlayer extends Player{
+
+    //implement methods inherited with override 
+    @Override
+    public Card playCard() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int placeBid() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

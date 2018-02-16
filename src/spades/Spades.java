@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package spades;
 
-//imported swing library
+//imported class Game and JOptionPane
+import core.Game;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,7 +24,9 @@ public class Spades {
         System.out.println("Welcome to Spades!");
         //Send string to UI output using JOption Pane
         JOptionPane.showMessageDialog(null, "Let's Play Spades!");
-        // TODO code application logic here
+        
+        //Instantiate class Game
+        Game game = new Game();
         
     } //end main 
     
