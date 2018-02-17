@@ -25,8 +25,8 @@ public class Constants {
         NINE, TEN, JACK, QUEEN, KING, ACE};
     
     // my own addition of AI names to vary the names of the AI Players
-    public static final String[] AI_NAMES = {"Hal","Jane","Max","Wall-E","R2D2",
-        "C-3PO", "Johnny 5", "Data", "T-800", "SkyNet" }; 
+    public static final String[] AI_NAMES = {"Hal","Jane","Max","Wall-E","R2-D2",
+        "C-3PO", "Johnny 5", "Data", "T-800", "SkyNet"}; 
     
     
     

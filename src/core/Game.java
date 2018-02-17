@@ -165,9 +165,9 @@ public class Game {
         scan = new Scanner(System.in);
         
         //output to request user input
-        System.out.println("Enter your name");
+        System.out.println("Enter human player name");
         //instantiate string to save user input
-        String stringName = scan.nextLine();
+        String stringName = scan.next();
         
         //instantiate Human Player and set name to user input
         HumanPlayer human = new HumanPlayer();
@@ -188,33 +188,45 @@ public class Game {
         
         
         //instantiate new object of Random class to go through array
-        Random random = new Random();
-        //local variable for counting through aiNames array
-        int index;
+        Random rand = new Random();
+        //local variables for counting through aiNames array
+        //x variables as counters to avoid duplicating AI names
+        int index; 
+        //need to initialize the variables first for comparing
+        int x1 = AI_NAMES.length + 1; 
+        int x2 = AI_NAMES.length + 1;
+        int x3 = AI_NAMES.length + 1;
         
         
         //loop to generate AI players
         for(i = 1; i<=3; i++) {
             AiPlayer aiPlayer = new AiPlayer();
-            //generate name for AI Players
-            index = random.nextInt(AI_NAMES.length);
             
             //initialize playerName string first to be able to compare later
             aiPlayer.setPlayerName("temp");
             
-            //while loop to keep names from repeating
-            while (aiPlayer.getPlayerName().equals(AI_NAMES[index])) {
-            index = random.nextInt(AI_NAMES.length);
-            } //end while
+            //do while loop to keep names from repeating 
+            //keep generating random numbers as long as it matches a number 
+            //picked
+            do {
+                index = rand.nextInt(AI_NAMES.length);
+            } while (index == x1 || index == x2 || index == x3); 
+            
             
             aiPlayer.setPlayerName(AI_NAMES[index]+" (AI)");
             //add ai Players to appropriate teams
             if (i == 1) {
-                teamOne.getTeam().add(aiPlayer);    
+                teamOne.getTeam().add(aiPlayer);
+                x1 = index; //record first name counter
             }
             else {
                 teamTwo.getTeam().add(aiPlayer);
-            }
+                if (i == 3) {
+                    x3 = index; //record third name counter
+                } else {
+                    x2 = index; //record second name counter
+                }
+            }//end else
           
         }//end for loop
         
@@ -222,8 +234,10 @@ public class Game {
     
     //define method outputTeams
     private void outputTeams() {
+        //for loop to loop through the team list and print team name
         for (Team element : teamList) {
-            System.out.println("Team One includes players:");
+            System.out.println(element.getTeamName()+" includes players:");
+            //inside for loop to loop through players of the team and print out
             for(Player player: element.getTeam()) {
                 System.out.println("Player: "+ player.getPlayerName());
             } //end inside for
