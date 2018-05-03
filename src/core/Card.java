@@ -60,6 +60,30 @@ public class Card {
    private CardFace face;
    private CardSuit suit;
    
-    
+   //method hashCode with return of int variable hashCode
+   public int hashCode() {
+       
+       int hashCode = 0;
+       
+       return hashCode;
+   }//end hashCode()
+   
+   //Method  returns type Boolean with one parameter, Object
+   public boolean equals(Object item) {
+       //check if the parameter is instanceof Card
+       if (item instanceof Card) {
+           //convert parameter to instance of Card 
+           Card localCard = (Card) item;
+           return (
+                   localCard.face.equals(this.face) &&
+                   localCard.color.equals(this.color) &&
+                   localCard.suit.equals(this.suit));
+       }//end if
+       else {
+          //otherwise return false
+           return false;
+       }//end else
+   }//end equals()
+   
     
 }//end class Card
